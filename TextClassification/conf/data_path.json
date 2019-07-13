@@ -1,0 +1,13 @@
+{
+  "data": {
+    "train_data": "./data/SST2/train.txt",
+    "dev_data": "./data/SST2/dev.txt",
+    "test_data": "./data/SST2/test.txt",
+    "embedding_path": "./data/word2vec_40w_300.txt"
+  },
+  "model": {
+    "save_vocab_path": "./model/word_vocab.pkl",
+    "load_vocab_path": "./model/word_vocab.pkl",
+    "save_model_path": "./model/_net.pkl"
+  }
+}

@@ -90,6 +90,15 @@ ENV/
 env.bak/
 venv.bak/
 
+# IDEA
+TextClassification/.idea
+TextClassification/.pytest_cache
+TextClassification/__pycache__
+TextClassification/data
+TextClassification/model
+TextClassification/test
+TextClassification/test*.py
+
 # Spyder project settings
 .spyderproject
 .spyproject

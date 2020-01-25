@@ -72,6 +72,8 @@ class Classifier(object):
         self._hist = History()  # 保持训练过程的acc和loss
         train_acc_lst, train_loss_lst = [], []
         dev_acc_lst, dev_loss_lst = [], []
+        patient, max_patient = 0, 5
+        best_dev_score = 0
         # 迭代更新
         for i in range(self._args.epochs):
             self._classifier.train()
@@ -116,6 +118,18 @@ class Classifier(object):
             train_loss_lst.append(train_loss)
 
             dev_acc, dev_loss = self._validate(dev_data)
+            # early stopping
+            dev_score = dev_acc
+            if dev_score > best_dev_score:
+                best_dev_score = dev_score
+                # save model
+                patient = 0
+            else:
+                patient += 1
+
+            if patient > max_patient:
+                break
+
             dev_acc_lst.append(dev_acc)
             dev_loss_lst.append(dev_loss)
 
